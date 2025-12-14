@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Contáctanos | Peña La Cultural</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS GLOBAL -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR reutilizada -->
+  <header class="navbar scrolled">
+    <h1 class="logo">Peña La Cultural</h1>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="index.html#eventos">Eventos</a>
+      <a href="index.html#galeria">Galería</a>
+    </nav>
+  </header>
+
+  <!-- FORMULARIO -->
+  <section style="margin-top: 120px;">
+    <h2>Contáctanos</h2>
+
+    <div class="card">
+      <form id="contactForm">
+
+        <label>Nombre</label>
+        <input type="text" id="nombre" required>
+
+        <label>Email</label>
+        <input type="email" id="email" required>
+
+        <label>Teléfono</label>
+        <input type="tel" id="telefono" required>
+
+        <label>Mensaje</label>
+        <textarea id="mensaje" rows="5" required></textarea>
+
+        <button type="submit">Enviar mensaje</button>
+
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Peña La Cultural</p>
+  </footer>
+
+  <!-- JS EMBEBIDO -->
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById("nombre").value;
+      const email = document.getElementById("email").value;
+      const telefono = document.getElementById("telefono").value;
+      const mensaje = document.getElementById("mensaje").value;
+
+      const texto =
+`📩 *Nuevo contacto desde la web*
+👤 Nombre: ${nombre}
+📧 Email: ${email}
+📞 Teléfono: ${telefono}
+📝 Mensaje: ${mensaje}`;
+
+      /* WHATSAPP */
+      const whatsappURL = `https://wa.me/34643213578?text=${encodeURIComponent(texto)}`;
+      window.open(whatsappURL, "_blank");
+
+      /* EMAIL */
+      const mailtoURL = `mailto:laculturaltelefonica@gmail.com?subject=Nuevo contacto web&body=${encodeURIComponent(texto)}`;
+      window.location.href = mailtoURL;
+    });
+  </script>
+
+</body>
+</html>
