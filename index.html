@@ -3,18 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Peña La Cultural | Espacio de Ocio y Eventos en Málaga</title>
-  <meta name="description" content="Peña La Cultural en Málaga: Sábados Jóvenes, catering, música y eventos en un espacio chill. Ven a disfrutar con amigos y familia.">
+  <meta name="description" content="Peña La Cultural en Málaga: eventos, música, catering y buen ambiente en Teatinos. Sábados Jóvenes, comidas y celebraciones privadas.">
 
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="images/favicon.png" />
+  <link rel="icon" href="images/jamon.jpeg" />
 </head>
 
 <body>
 
   <!-- NAVBAR -->
-  <header class="navbar">
-    <h1>Peña La Cultural</h1>
+  <header class="navbar" id="navbar">
+    <h1 class="logo">Peña La Cultural</h1>
     <nav>
       <a href="#inicio">Inicio</a>
       <a href="#eventos">Eventos</a>
@@ -26,33 +27,42 @@
 
   <!-- HERO -->
   <section id="inicio" class="hero">
-    <h1 class="titulo-amarillo">Bienvenidos a la Peña La Cultural</h1>
-    <p>Un espacio chill en Málaga para eventos, música, comida y buena compañía.</p>
-    <button onclick="scrollToSection('eventos')">Ver próximos eventos</button>
+    <div class="hero-content">
+      <h1 class="titulo-amarillo fade-in">Bienvenidos a la Peña La Cultural</h1>
+      <p class="fade-in delay-1">
+        Un espacio chill en Málaga para eventos, música, comida y buena compañía.
+      </p>
+      <button class="fade-in delay-2" onclick="scrollToSection('eventos')">
+        Ver próximos eventos
+      </button>
+    </div>
   </section>
 
   <!-- EVENTOS -->
   <section id="eventos">
     <h2>Próximos eventos</h2>
+
     <div class="card">
       <h3>Sábados Jóvenes</h3>
-      <p>📅 Todos los Sábados - Juegos, quedadas, música, comida, copas, shishas y buen ambiente.</p>
+      <p>📅 Todos los sábados – Juegos, quedadas, música, comida, copas, shishas y buen ambiente.</p>
     </div>
+
     <div class="card">
       <h3>Menú Domingo</h3>
-      <p>📅 Todos los Domingos - Menú especial 11€. Pregunta el menú del próximo Domingo por Instagram o Whatsapp.</p>
+      <p>📅 Todos los domingos – Menú especial 11€. Pregunta el menú semanal por Instagram o WhatsApp.</p>
     </div>
   </section>
 
   <!-- GALERÍA -->
   <section id="galeria">
     <h2>Galería de fotos</h2>
+
     <div class="galeria-grid">
-      <img src="images/WhatsApp Image 2025-12-09 at 20.36.48.jpeg" alt="Catering Málaga foto 1">
-      <img src="images/WhatsApp Image 2025-12-09 at 20.42.25.jpeg" alt="Catering Málaga foto 2">
-      <img src="images/WhatsApp Image 2025-12-09 at 20.42.26 (1).jpeg" alt="Catering Málaga foto 3">
-      <img src="images/WhatsApp Image 2025-12-09 at 20.42.26 (2).jpeg" alt="Catering Málaga foto 4">
-      <img src="images/WhatsApp Image 2025-12-09 at 20.42.26.jpeg" alt="Catering Málaga foto 5">
+      <img src="images/migas.jpeg" alt="Catering Málaga migas">
+      <img src="images/jamon.jpeg" alt="Catering Málaga jamón">
+      <img src="images/paella.jpeg" alt="Catering Málaga paella">
+      <img src="images/hamburguesa.jpeg" alt="Catering Málaga hamburguesa">
+      <img src="images/ensaladilla.jpeg" alt="Catering Málaga ensaladilla">
     </div>
   </section>
 
