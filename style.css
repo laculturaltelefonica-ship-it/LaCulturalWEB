@@ -121,7 +121,7 @@ body {
 /* ========================= */
 /* SECCIONES NORMALES */
 /* ========================= */
-section:not(.hero) {
+section:not(.hero):not(.fullscreen) {
   padding: 4rem 2rem;
   max-width: 1000px;
   margin: auto;
@@ -251,6 +251,22 @@ form button {
 
 .bg-espacio {
   background-image: url("./images/espacio.jpeg");
+}
+
+.bg-huevorelleno {
+  background-image: url("./images/huevorelleno.jpeg");
+}
+
+.bg-embutidos {
+  background-image: url("./images/embutidos.jpeg");
+}
+
+.bg-ensaladatempladaD {
+  background-image: url("./images/ensaladatempladaD.jpeg");
+}
+
+.bg-ensaladatempladaC {
+  background-image: url("./images/ensaladatempladaC.jpeg");
 }
 
 .bg-migas {
