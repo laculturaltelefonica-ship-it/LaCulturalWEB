@@ -1,82 +1,68 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Contáctanos | Peña La Cultural</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- CSS GLOBAL -->
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contáctanos | Tu Empresa</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    body { font-family: Arial, sans-serif; background:#f5f5f5; padding:20px; }
+    .contact-form { max-width:500px; margin: auto; background:#fff; padding:20px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.1); }
+    .contact-form h2 { text-align:center; margin-bottom:20px; }
+    .contact-form label { display:block; margin-bottom:5px; font-weight:bold; }
+    .contact-form input, .contact-form textarea { width:100%; padding:10px; margin-bottom:15px; border:1px solid #ccc; border-radius:5px; }
+    .contact-form button { width:100%; padding:10px; background:#007bff; color:#fff; border:none; border-radius:5px; font-size:16px; cursor:pointer; }
+    .contact-form button:hover { background:#0056b3; }
+</style>
 </head>
-
 <body>
 
-  <!-- NAVBAR reutilizada -->
-  <header class="navbar scrolled">
-    <h1 class="logo">Peña La Cultural</h1>
-    <nav>
-      <a href="index.html">Inicio</a>
-      <a href="index.html#eventos">Eventos</a>
-      <a href="index.html#galeria">Galería</a>
-    </nav>
-  </header>
-
-  <!-- FORMULARIO -->
-  <section style="margin-top: 120px;">
+<div class="contact-form">
     <h2>Contáctanos</h2>
-
-    <div class="card">
-      <form id="contactForm">
-
-        <label>Nombre</label>
+    <form id="formContacto">
+        <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" required>
 
-        <label>Email</label>
+        <label for="email">Correo electrónico:</label>
         <input type="email" id="email" required>
 
-        <label>Teléfono</label>
-        <input type="tel" id="telefono" required>
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono">
 
-        <label>Mensaje</label>
+        <label for="mensaje">Mensaje:</label>
         <textarea id="mensaje" rows="5" required></textarea>
 
-        <button type="submit">Enviar mensaje</button>
+        <button type="submit">Enviar</button>
+    </form>
+</div>
 
-      </form>
-    </div>
-  </section>
+<script>
+document.getElementById('formContacto').addEventListener('submit', function(e){
+    e.preventDefault();
 
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2025 Peña La Cultural</p>
-  </footer>
+    // Capturamos los valores
+    const nombre = document.getElementById('nombre').value;
+    const email = document.getElementById('email').value;
+    const telefono = document.getElementById('telefono').value;
+    const mensaje = document.getElementById('mensaje').value;
 
-  <!-- JS EMBEBIDO -->
-  <script>
-    document.getElementById("contactForm").addEventListener("submit", function(e) {
-      e.preventDefault();
+    // Creamos el mensaje para WhatsApp
+    const whatsappMsg = `Hola, soy ${nombre}.%0ACorreo: ${email}%0ATeléfono: ${telefono}%0AMensaje: ${mensaje}`;
+    const whatsappURL = `https://wa.me/1234567890?text=${whatsappMsg}`; // Cambia el número por tu WhatsApp
 
-      const nombre = document.getElementById("nombre").value;
-      const email = document.getElementById("email").value;
-      const telefono = document.getElementById("telefono").value;
-      const mensaje = document.getElementById("mensaje").value;
+    // Creamos el mailto para correo
+    const mailtoLink = `mailto:tuemail@dominio.com?subject=Contacto desde web&body=Nombre: ${nombre}%0ACorreo: ${email}%0ATeléfono: ${telefono}%0AMensaje: ${mensaje}`;
 
-      const texto =
-`📩 *Nuevo contacto desde la web*
-👤 Nombre: ${nombre}
-📧 Email: ${email}
-📞 Teléfono: ${telefono}
-📝 Mensaje: ${mensaje}`;
+    // Abrimos WhatsApp en nueva pestaña
+    window.open(whatsappURL, '_blank');
 
-      /* WHATSAPP */
-      const whatsappURL = `https://wa.me/34643213578?text=${encodeURIComponent(texto)}`;
-      window.open(whatsappURL, "_blank");
+    // Abrimos correo en cliente de email
+    window.location.href = mailtoLink;
 
-      /* EMAIL */
-      const mailtoURL = `mailto:laculturaltelefonica@gmail.com?subject=Nuevo contacto web&body=${encodeURIComponent(texto)}`;
-      window.location.href = mailtoURL;
-    });
-  </script>
+    // Opcional: limpiar el formulario
+    document.getElementById('formContacto').reset();
+});
+</script>
 
 </body>
 </html>
