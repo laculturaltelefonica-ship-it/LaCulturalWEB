@@ -249,3 +249,18 @@ form button {
   font-size: 1.3rem;
 }
 
+.bg-espacio {
+  background-image: url("./images/espacio.jpeg");
+}
+
+.bg-migas {
+  background-image: url("./images/migas.jpeg");
+}
+
+.bg-jamon {
+  background-image: url("./images/jamon.jpeg");
+}
+
+.bg-paella {
+  background-image: url("./images/paella.jpeg");
+}
