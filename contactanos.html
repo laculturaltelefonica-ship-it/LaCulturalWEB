@@ -64,7 +64,7 @@
     <h2>Contáctanos</h2>
 
     <input type="text" name="nombre" placeholder="Tu nombre" required>
-    <input type="email" name="correo" placeholder="Tu correo electrónico" required>
+    <input type="email" name="email" placeholder="Tu correo electrónico" required>
     <textarea name="mensaje" placeholder="Escribe tu mensaje aquí..." rows="5" required></textarea>
 
     <button type="submit">Enviar mensaje</button>
@@ -79,20 +79,27 @@
     document.getElementById("contactForm").addEventListener("submit", function (e) {
       e.preventDefault();
 
+      // 1️⃣ Correo para ti
       emailjs.sendForm(
         "service_4olj3be",
         "template_g5jz7ir",
         this
-      ).then(
-        function () {
-          document.getElementById("successMsg").style.display = "block";
-          document.getElementById("contactForm").reset();
-        },
-        function (error) {
-          alert("Error al enviar el mensaje");
-          console.error(error);
-        }
       );
+
+      // 2️⃣ Correo automático para el usuario
+      emailjs.sendForm(
+        "service_4olj3be",
+        "template_g0fp33i",
+        this
+      )
+      .then(function () {
+        document.getElementById("successMsg").style.display = "block";
+        document.getElementById("contactForm").reset();
+      })
+      .catch(function (error) {
+        console.error("Error:", error);
+        alert("Error al enviar el mensaje");
+      });
     });
   </script>
 
